@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 def buttons(request):
 
 	return JsonResponse({
-		"type": "buttons"
+		"type": "buttons",
 		"buttons": ['판례검색', ]
 		})
 
