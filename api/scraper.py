@@ -19,8 +19,4 @@ def case_scraper(request):
 	return [issue, summary, link]
 
 
-
-
-
-# //*[@id="mainbar"]/div[2]/div[2]
 # print(case_scraper('98다22543'))

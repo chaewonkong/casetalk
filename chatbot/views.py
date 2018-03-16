@@ -30,8 +30,10 @@ def message(request):
 			case = case_scraper(request)
 		except:
 			return JsonResponse({
-				"message": {"text": "해당 판례를 찾을 수 없습니다.\n띄어쓰기에 유의해 다시 검색해주세요."}
-				})
+				"message": {
+				"text": "해당 판례를 찾을 수 없습니다.\n띄어쓰기에 유의해 다시 검색해주세요.\n\n 예) 98다22543"
+				}
+			})
 		else:
 			return JsonResponse({
 				"message": {
@@ -39,4 +41,4 @@ def message(request):
 							"\n\n판결요지\n\n" + case[1] +
 							"\n\n케이스노트에서 자세히 보기\n\n" + case[2]
 					},
-				})
+			})
