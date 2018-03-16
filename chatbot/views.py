@@ -1,15 +1,20 @@
+import json
+
+
 from django.shortcuts import render
 from django.http import JsonResponse
 from api.scraper import case_scraper
+from django.views.decorators.csrf import csrf_exempt
 
 
-def keyboard(request):
+def buttons(request):
 
 	return JsonResponse({
 		"message":{"text": "판례번호를 띄어쓰기 없이 입력해주세요"},
 		})
+	
 
-
+@csrf_exempt
 def message(request):
 
 	case = case_scraper(request)
