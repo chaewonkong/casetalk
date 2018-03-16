@@ -21,7 +21,7 @@ def message(request):
 	json_data = json.loads(json_str)
 	request = json_data['content']
 
-	if request =='판례검색'
+	if request =='판례검색':
 		return JsonResponse({
 			"message": {"text": "판례번호를 띄어쓰기 없이 입력해주세요"}
 			})
