@@ -26,17 +26,17 @@ def message(request):
 			"message": {"text": "판례번호를 띄어쓰기 없이 입력해주세요"}
 			})
 	else:
-		case = case_scraper(request)
-		if case:
+		try:
+			case = case_scraper(request)
+		except:
+			return JsonResponse({
+				"message": {"text": "해당 판례를 찾을 수 없습니다.\n띄어쓰기에 유의해 다시 검색해주세요."}
+				})
+		else:
 			return JsonResponse({
 				"message": {
 					"text": request + "\n\n판시사항\n\n" + case[0] +
 							"\n\n판결요지\n\n" + case[1] +
 							"\n\n케이스노트에서 자세히 보기\n\n" + case[2]
 					},
-				})
-		
-		else:
-			return JsonResponse({
-				"message": {"text": "해당 판례를 찾을 수 없습니다.\n띄어쓰기에 유의해 다시 검색해주세요."}
 				})
