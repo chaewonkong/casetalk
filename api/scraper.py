@@ -9,14 +9,14 @@ from bs4 import BeautifulSoup
 def case_scraper(request):
 	"""Search request in casenote.kr and return outcome"""
 
-
-	req = requests.get("https://casenote.kr/search/?q="+request)
+	link = "https://casenote.kr/search/?q="+request
+	req = requests.get(link)
 	html = req.text
 	soup = BeautifulSoup(html, 'html.parser')
 	issue = soup.find('div', {'class': 'issue'}).get_text()
 	summary = soup.find('div', {'class': 'summary'}).get_text()
 
-	return [issue, summary]
+	return [issue, summary, link]
 
 
 
